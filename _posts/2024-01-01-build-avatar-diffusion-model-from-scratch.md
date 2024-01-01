@@ -1,3 +1,8 @@
+layout: post
+title: "Build Avatar Diffusion Model from Scratch"
+date: 2024-01-01 08:55:00 -0000
+categories: diffusion_model avatr
+
 # Build Avatar Diffusion Model from Scratch
 <p align=center>
   <img align=center src="figures/cartoon_set_diffusion_random_sample_grid.gif" alt="cartoon avatar diffusion random samples" width="500"/>
