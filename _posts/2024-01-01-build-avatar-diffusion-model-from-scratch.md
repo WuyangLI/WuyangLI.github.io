@@ -151,7 +151,7 @@ By the 9th epoch, the model managed to generate green hair! It accurately captur
 Even beyond epoch 20, the color of the generated random samples continued to be inaccurate.
 
 <p align=center>
-  <img src="/docs/assets/images/diffusion_models/figures/figure12_conditional_diffusion_2_ep20.png" alt=figure 12-1" width="800"/>
+  <img src="/docs/assets/images/diffusion_models/figures/figure12_conditional_diffusion_2_ep20.png" alt="figure 12-1" width="800"/>
 </p>
 
 ### Attention Modules in UNet
