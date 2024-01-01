@@ -163,12 +163,12 @@ Interestingly, this shift to multi-head attention allowed the model to finally g
 
 By the 9th epoch, as shown in the randomly generated images, the model demonstrated the ability to generate hair colors spanning grey, white, brown, yellow, and blond!
 <p align=center>
-  <img src="/docs/assets/images/diffusion_models/figures/figure13_conditional_diffusion_3_ep9.png" alt=figure 13" width="800"/>
+  <img src="/docs/assets/images/diffusion_models/figures/figure13_conditional_diffusion_3_ep9.png" alt="figure 13" width="800"/>
 </p>
 
 However, the decrease in loss wasn't consistent beyond epoch 9. From a qualitative standpoint, there wasn't a noticeable visual enhancement observed between epoch 9 and epoch 18. Notably, there were perceptible artifacts such as green or blue pixels appearing on faces or hair.
 <p align=center>
-  <img src="/docs/assets/images/diffusion_models/figures/figure14_conditional_diffusion_3_ep18.png" alt=figure 14" width="800"/>
+  <img src="/docs/assets/images/diffusion_models/figures/figure14_conditional_diffusion_3_ep18.png" alt="figure 14" width="800"/>
 </p>
 
 ### Magic Interaction Between Multi-head Attention and Tau Module
@@ -177,11 +177,11 @@ Following the incorporation of multi-head attention into the model, to further a
 Despite noticing minor imperfections on the face and in the background, we successfully completed the training of our avatar diffusion model!
 
 <p align=center>
-  <img src="/docs/assets/images/diffusion_models/figures/figure15_conditional_diffusion_4_ep9.png" alt=figure 15" width="800"/>
+  <img src="/docs/assets/images/diffusion_models/figures/figure15_conditional_diffusion_4_ep9.png" alt="figure 15" width="800"/>
 </p>
 <p align=center>random samples of generated images at epoch 9</p>
 <p align=center>
-  <img src="/docs/assets/images/diffusion_models/figures/figure16_conditional_diffusion_4_ep18.png" alt=figure 16" width="800"/>
+  <img src="/docs/assets/images/diffusion_models/figures/figure16_conditional_diffusion_4_ep18.png" alt="figure 16" width="800"/>
 </p>
 <p align=center>random samples of generated images at epoch 18</p>
 
@@ -200,11 +200,11 @@ Regularly create checkpoints for the model and closely monitor the loss. If you 
 #### Lower loss doesn’t promise better image quality
 A decrease in loss doesn't guarantee improved image quality. In certain instances, the model effectively learns hair colors after the 10th epoch. Yet, beyond this point, although the loss continues to decrease steadily, the model appears to disregard the knowledge it previously acquired regarding hair color.
 <p align=center>
-  <img src="/docs/assets/images/diffusion_models/figures/figure17_conditional_diffusion_other_ep10.png" alt=figure 17" width="800"/>
+  <img src="/docs/assets/images/diffusion_models/figures/figure17_conditional_diffusion_other_ep10.png" alt="figure 17" width="800"/>
 </p>
 <p align=center>sample of generated images by epoch 10</p>
 <p align=center>
-  <img src="/docs/assets/images/diffusion_models/figures/figure18_conditional_diffusion_other_ep14.png" alt=figure 18" width="800"/>
+  <img src="/docs/assets/images/diffusion_models/figures/figure18_conditional_diffusion_other_ep14.png" alt="figure 18" width="800"/>
 </p>
 <p align=center>sample of generated images by epoch 14</p>
 
