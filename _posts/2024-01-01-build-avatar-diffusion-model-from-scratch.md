@@ -1,8 +1,3 @@
-layout: post
-title: "Build Avatar Diffusion Model from Scratch"
-date: 2024-01-01 08:55:00 -0000
-categories: diffusion_model avatr
-
 # Build Avatar Diffusion Model from Scratch
 <p align=center>
   <img align=center src="/docs/assets/images/diffusion_models/figures/cartoon_set_diffusion_random_sample_grid.gif" alt="cartoon avatar diffusion random samples" width="500"/>
@@ -89,8 +84,6 @@ We overcome the "mode collapsing" problem by constructing a conditional diffusio
 The primary emphasis of this blog centers on the modifications I introduced to transform the vanilla diffusion model into its conditional version. Except the conditioning module (Tau) and attention modules (MultiHeadCrossAttention), the foundational building blocks of the UNet and diffusion process are largely adapted from the two repositories referenced earlier.
 
 ### Conditioning Module 
-
-Add gist for Conditioning module
   
 The conditioning module receives avatar attributes in numerical form and produces conditioning embeddings utilized within the attention modules of the UNet. Essentially, this module functions as a series of linear projections, transforming avatar attributes into an embedding space. This space proves more effective within the attention mechanism, working in tandem with extracted image features across various scales.
 
