@@ -226,12 +226,13 @@ the following table is a breakdown of model memory
 |activations and tmp memory|8|583.38 MB (high-end)|
 |total memory needed|4 + 20 extra|2333.51 MB (high-end)|
 
-When training the model, we need an AWS g5 2xlarge instance with 24G GPU memory.
+Does this mean theoretically we only need around 2G GPU for training the model?
+No, as it turned out, we need an AWS g5 2xlarge instance with 24G GPU memory.
 <p align=center>
   <img src="/docs/assets/images/diffusion_models/figures/nvidia-smi-screenshot.png" alt="" width="600"/>
 </p>
 
-
+Stay tuned, where is the GPU memory gone?
 
 
 
