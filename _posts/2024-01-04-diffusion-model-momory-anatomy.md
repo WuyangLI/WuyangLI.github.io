@@ -30,7 +30,7 @@ the following table is a breakdown of model memory of weights, optimizer and gra
 
 As you can see, they're nothing compared to the total GPU consumption. 
 ### Forward Activations
-How about forward activations that are saved for gradient computation? I used the following [function](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/13) to estimate the activatio size of the avatar diffusion model:
+How about forward activations that are saved for gradient computation? I used the following [function](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/13) by [ndvbd](https://discuss.pytorch.org/u/ndvbd/summary) to estimate the activatio size of the avatar diffusion model:
 ```python
 # modified from https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/13
 # credit to ndvbd
@@ -61,5 +61,49 @@ def calc_total_activation_size(model, input_tensor_size):
     return total_output_elements*4/(1024*1024)
 
 calc_total_activation_size(nn_model, (128, 3, 64, 64))
+```
+Voila! forward activation is the culprit! it consumes **18319** MB (~18G)
+
+So why does such a small model (of 60 million params, ~290M in size) with small input (6M in size, 128 x 3 x 64 x 64 float tensor) generate 18G activation tensors?
+
+The root cause is **Convelution** layers used in the network
+
+As [ptrblck](https://discuss.pytorch.org/u/ptrblck/summary) explains in [pytorch forum](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/9)
+>It really depends on the model architecture and especially for e.g. conv layers, you would see a huge memory difference, while linear layers could yield the inverse effect.
+>Here is a smaller example:
+```python
+# conv
+model = nn.Conv2d(3, 64, 3, 1, 1)
+x = torch.randn(1, 3, 224, 224)
+
+out = model(x)
+
+model_param_size = sum([p.nelement() for p in model.parameters()])
+input_size = x.nelement()
+act_size = out.nelement()
+
+print('model size: {}\ninput size: {}\nactivation size: {}'.format(
+    model_param_size, input_size, act_size))
+
+> model size: 1792
+  input size: 150528
+  activation size: 3211264
+  
+# linear
+model = nn.Linear(1024, 1024)
+x = torch.randn(1, 1024)
+
+out = model(x)
+
+model_param_size = sum([p.nelement() for p in model.parameters()])
+input_size = x.nelement()
+act_size = out.nelement()
+
+print('model size: {}\ninput size: {}\nactivation size: {}'.format(
+    model_param_size, input_size, act_size))
+
+> model size: 1049600
+  input size: 1024
+  activation size: 1024
 ```
 
