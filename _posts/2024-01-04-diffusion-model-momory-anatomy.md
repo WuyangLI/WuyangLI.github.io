@@ -12,7 +12,7 @@ As outlined in [the huggingface blog -model memory anatomy](https://huggingface.
 5. temporary buffers
 6. functionality-specific memory
 
-As shown in the screenshot of `nvidia-smi` on an AWS g5 2xlarge instance with 24G GPU memory, the training of the model consumes up to 22616 MB GPU memory. Among the components listed above, which is the top culprit? 
+As shown in the screenshot of `nvidia-smi` on an AWS `g5 2xlarge` instance with 24G GPU memory, the training of the model consumes up to 22616 MB GPU memory. Among the components listed above, which is the top culprit? 
 <p align=center>
   <img src="/docs/assets/images/diffusion_models/figures/nvidia-smi-screenshot.png" alt="" width="600"/>
 </p>
