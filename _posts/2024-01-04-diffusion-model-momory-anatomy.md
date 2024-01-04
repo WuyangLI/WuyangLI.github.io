@@ -126,3 +126,13 @@ print('model size: {}\ninput size: {}\nactivation size: {}'.format(
 > input size: 1024
 >
 > activation size: 1024
+
+
+# References
+[A comprehensive guide to memory usage in pytorch](https://medium.com/deep-learning-for-protein-design/a-comprehensive-guide-to-memory-usage-in-pytorch-b9b7c78031d3)
+
+[Relationship between memory usage and batch size](https://discuss.pytorch.org/t/relationship-between-gpu-memory-usage-and-batch-size/132266)
+
+[small model with OOM error](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/11)
+
+[the huggingface blog -model memory anatomy](https://huggingface.co/docs/transformers/model_memory_anatomy)
