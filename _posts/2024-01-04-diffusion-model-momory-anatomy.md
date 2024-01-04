@@ -66,10 +66,21 @@ Voila! forward activation is the culprit! it consumes **18319** MB (~18G)
 
 So why does such a small model (of 60 million params, ~290M in size) with small input (6M in size, 128 x 3 x 64 x 64 float tensor) generate 18G activation tensors?
 
-The root cause is **Convelution** layers used in the network
+The root cause is **Convolution** layers used in the network
 
-As [ptrblck](https://discuss.pytorch.org/u/ptrblck/summary) explains in [pytorch forum](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/9)
+Convolution blocks usually output large feature maps used as inputs to their following layers.
+In the case of Avatar diffusion model, in the downsampling path, the input tensors are transformed as follows:
+```
+[B, 3, 64, 64] -> [B, 128, 64, 64] -> [B, 256, 32, 32] -> [B, 512, 16, 16] -> [B, 1024, 8, 8]
+```
+As you can see, despite the exponentially shrinking width and height, the number of channels grows all the way from 3 to 128, 256, 512, and 1024. These tensors are all forward activations
+```
+[B, 128, 64, 64], [B, 256, 32, 32], [B, 512, 16, 16], [B, 1024, 8, 8]
+```
+
+As [ptrblck](https://discuss.pytorch.org/u/ptrblck/summary) explains in [pytorch forum](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/9), conv layers usually require much larger activation size than its input, as opposed to other layers, eg. linear. 
 >It really depends on the model architecture and especially for e.g. conv layers, you would see a huge memory difference, while linear layers could yield the inverse effect.
+>
 >Here is a smaller example:
 ```python
 # conv
@@ -84,11 +95,13 @@ act_size = out.nelement()
 
 print('model size: {}\ninput size: {}\nactivation size: {}'.format(
     model_param_size, input_size, act_size))
-
+````
 > model size: 1792
-  input size: 150528
-  activation size: 3211264
-  
+> 
+> input size: 150528
+> 
+> activation size: 3211264
+```python  
 # linear
 model = nn.Linear(1024, 1024)
 x = torch.randn(1, 1024)
@@ -101,9 +114,10 @@ act_size = out.nelement()
 
 print('model size: {}\ninput size: {}\nactivation size: {}'.format(
     model_param_size, input_size, act_size))
-
-> model size: 1049600
-  input size: 1024
-  activation size: 1024
 ```
 
+> model size: 1049600
+>
+> input size: 1024
+>
+> activation size: 1024
