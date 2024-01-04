@@ -1,9 +1,7 @@
 # Avatar Diffusion Model Memory Anatomy
-Following the blog ["build-avatar-diffusion-model-from-scratch"](https://wuyangli.github.io/2024/01/01/build-avatar-diffusion-model-from-scratch), 
+Following up the question "where is the GPU memory gone?" raised in the last section of the blog ["build-avatar-diffusion-model-from-scratch"](https://wuyangli.github.io/2024/01/01/build-avatar-diffusion-model-from-scratch). It's so puzzling to see that a relatively small model consumes almost the entire 24G GPU memory.
 
-During interations with the model, encountering an "OutOfMemory" error is not uncommon. It can be puzzling to see that a relatively small model consumes the entire GPU memory.
-
-Trainable parameters of the avatar diffusion model is 76,464,439 (76 million), thus it's of similar size to Resnet152, which has 60 million parameters.
+Trainable parameters of the avatar diffusion model is 76,464,439 (76 million), meaning that it's of similar size to Resnet152, which has 60 million parameters.
 
 ## Components on GPU memory
 As outlined in [the huggingface blog -model memory anatomy](https://huggingface.co/docs/transformers/model_memory_anatomy), the components on GPU memory are the following: 
