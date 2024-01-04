@@ -60,7 +60,7 @@ def calc_total_activation_size(model, input_tensor_size):
 
 calc_total_activation_size(nn_model, (128, 3, 64, 64))
 ```
-Voila! forward activation is the culprit! it consumes **18319** MB (~18G)
+**Voila! forward activation is the culprit!** it consumes **18319** MB (~18G)
 
 So why does such a small model (of 60 million params, ~290M in size) with small input (6M in size, 128 x 3 x 64 x 64 float tensor) generate 18G activation tensors?
 
