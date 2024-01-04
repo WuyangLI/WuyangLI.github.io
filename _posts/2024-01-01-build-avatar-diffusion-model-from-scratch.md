@@ -217,22 +217,15 @@ To give you an idea of the size of the model, the following are the size of popu
 |Resnet50|23 million|
 |Resnet152|60 million|
 
-the following table is a breakdown of model memory
-|memory breakdown|bytes per parameter|memory|
-|:---------------- | :------: | ----: |
-|model weight|4|291.69 MB|
-|adam optimizer|8|583.38 MB|
-|gradients|4|291.69 MB|
-|activations and tmp memory|8|583.38 MB (high-end)|
-|total memory needed|4 + 20 extra|2333.51 MB (high-end)|
+so the total size of model weight should be around 291.69 MB
 
-Does this mean theoretically we only need around 2G GPU for training the model?
+Does this mean theoretically we only need around 300M GPU for training the model?
 No, as it turned out, we need an AWS g5 2xlarge instance with 24G GPU memory.
 <p align=center>
   <img src="/docs/assets/images/diffusion_models/figures/nvidia-smi-screenshot.png" alt="" width="600"/>
 </p>
 
-Stay tuned, where is the GPU memory gone?
+There is a huge gap between 300M and 24G, where is the GPU memory gone?
 
 
 
