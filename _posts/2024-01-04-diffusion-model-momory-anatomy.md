@@ -28,7 +28,14 @@ the following table is a breakdown of model memory of weights, optimizer and gra
 
 As you can see, they're nothing compared to the total GPU consumption. 
 ### Forward Activations
-How about forward activations that are saved for gradient computation? I used the following [function](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/13) by [ndvbd](https://discuss.pytorch.org/u/ndvbd/summary) to estimate the activatio size of the avatar diffusion model:
+How about forward activations that are saved for gradient computation? 
+
+According to [the huggingface blog -model memory anatomy](https://huggingface.co/docs/transformers/model_memory_anatomy)
+>size depends on many factors, the key ones being sequence length, hidden size and batch size.
+> 
+>There are the input and output that are being passed and returned by the forward and the backward functions and the forward activations saved for gradient computation.
+
+I used the following [function](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/13) by [ndvbd](https://discuss.pytorch.org/u/ndvbd/summary) to estimate the activatio size of the avatar diffusion model:
 ```python
 # modified from https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/13
 # credit to ndvbd
