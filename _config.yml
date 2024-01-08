@@ -2,4 +2,7 @@ theme: jekyll-theme-minimal
 title: Wuyang's homepage
 description: Random Tech Notes
 markdown: GFM
-permalink: /:collection/:year-:month-:day-:title:output_ext
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:date/:title/
