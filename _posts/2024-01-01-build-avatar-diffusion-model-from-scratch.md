@@ -4,6 +4,7 @@ title: "Build Avatar Diffusion Model from Scratch"
 date: 2024-01-01
 author: Wuyang
 categories: diffusion model
+permalink: build-avatar-diffusion-model-from-scratch
 ---
 <p align=center>
   <img align=center src="/docs/assets/images/diffusion_models/figures/cartoon_set_diffusion_random_sample_grid.gif" alt="cartoon avatar diffusion random samples" width="500"/>
