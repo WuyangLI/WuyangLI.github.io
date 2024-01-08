@@ -1,4 +1,8 @@
-# Avatar Diffusion Model Memory Anatomy
+---
+layout: post
+title: "Avatar Diffusion Model Memory Anatomy"
+date: 2024-01-04
+---
 Following up the question "where has the GPU memory gone?" raised in the last section of the blog ["build-avatar-diffusion-model-from-scratch"](https://wuyangli.github.io/2024/01/01/build-avatar-diffusion-model-from-scratch). It's so puzzling to see that a relatively small model (~290M) with small input (~6M per batch) consumes almost the entire 24G GPU memory during training.
 
 Trainable parameters of the avatar diffusion model is 76,464,439 (76 million), meaning that it's of similar size to Resnet152, which has 60 million parameters.
