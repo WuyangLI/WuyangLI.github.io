@@ -8,4 +8,4 @@ show_excerpts: true
 collections:
   posts:
     output: true
-    permalink: /:year/:month/:date/:title/
+    permalink: /:title/
