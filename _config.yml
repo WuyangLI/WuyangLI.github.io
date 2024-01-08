@@ -5,4 +5,3 @@ markdown: GFM
 author: Wuyang Li
 url: "https://wuyangli.github.io"
 show_excerpts: true
-permalink: /:collection/:year-:month-:day-:title:output_ext
