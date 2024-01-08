@@ -1,6 +1,4 @@
 {% for post in site.posts %}
-    <li>
-      <a href="{{ post.permalink }}">{{ post.title }}</a>
-      <p>{{ post.description }}</p>
-    </li>
+##[{{ post.title }}]({{ post.permalink }})
+{{ post.excerpt}}
 {% endfor %}
