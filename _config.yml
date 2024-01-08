@@ -4,7 +4,7 @@ description: Machine Learning Learning Projects
 markdown: GFM
 author: Wuyang Li
 url: "https://wuyangli.github.io"
-permalink: /:collection/:title
+permalink: /:categories/:year/:month/:day/:title:output_ext
 show_excerpts: true
 collections:
   posts:
