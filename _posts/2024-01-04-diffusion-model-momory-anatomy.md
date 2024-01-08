@@ -2,6 +2,7 @@
 layout: post
 title: "Avatar Diffusion Model Memory Anatomy"
 date: 2024-01-04
+permalink: diffusion-model-momory-anatomy
 ---
 Following up the question "where has the GPU memory gone?" raised in the last section of the blog ["build-avatar-diffusion-model-from-scratch"](https://wuyangli.github.io/build-avatar-diffusion-model-from-scratch). It's so puzzling to see that a relatively small model (~290M) with small input (~6M per batch) consumes almost the entire 24G GPU memory during training.
 
