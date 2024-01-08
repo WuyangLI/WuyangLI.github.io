@@ -1,8 +1,13 @@
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.permalink }}">{{ post.title }}</a>
-      <p>{{ post.excerpt }}</p>
-    </li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <body>
+    <ul>
+      {% for post in site.posts %}
+      <li>
+        <a href="{{ post.permalink }}">{{ post.title }}</a>
+        <p>{{ post.excerpt }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
