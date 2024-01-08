@@ -1,4 +1,4 @@
 {% for post in site.posts %}
-[{{ post.permalink }}](##{{ post.title }})
+##{{ post.title }} [link]({{ post.permalink }})
 {{ post.excerpt}}
 {% endfor %}
