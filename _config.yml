@@ -2,7 +2,7 @@ theme: jekyll-theme-minimal
 title: Wuyang's Tech Notes
 description: Machine Learning Learning Projects
 markdown: GFM
-collections:
-  posts:
-    output: true
-    permalink: /:year/:month/:date/:title/
+author: Wuyang Li
+url: "https://wuyangli.github.io"
+show_excerpts: true
+permalink: /:collection/:year-:month-:day-:title:output_ext
