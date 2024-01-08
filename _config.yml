@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal
-title: Wuyang's homepage
-description: Random Tech Notes
+title: Wuyang's Tech Notes
+description: Machine Learning Learning Projects
 markdown: GFM
 collections:
   posts:
