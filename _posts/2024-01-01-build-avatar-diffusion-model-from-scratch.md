@@ -225,7 +225,7 @@ No, as it turned out, we need an AWS g5 2xlarge instance with 24G GPU memory.
   <img src="/docs/assets/images/diffusion_models/figures/nvidia-smi-screenshot.png" alt="" width="600"/>
 </p>
 
-There is a huge gap between 300M and 24G, where is the GPU memory gone?
+There is a huge gap between 300M and 24G, where has the GPU memory gone?
 
 
 
