@@ -5,3 +5,7 @@ markdown: GFM
 author: Wuyang Li
 url: "https://wuyangli.github.io"
 show_excerpts: true
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:date/:title/
