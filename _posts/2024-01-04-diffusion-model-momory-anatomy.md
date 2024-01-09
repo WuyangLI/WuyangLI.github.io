@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Avatar Diffusion Model Memory Anatomy"
+title: "Cartoon Avatar Diffusion Model Memory Anatomy"
 date: 2024-01-04
 permalink: diffusion-model-momory-anatomy
 ---
@@ -132,8 +132,17 @@ print('model size: {}\ninput size: {}\nactivation size: {}'.format(
 >
 > activation size: 1024
 
+## What we can do about it?
 
-# References
+Now that we found the culprit for the GPU memory consumption, what can we do about it?
+When we run out of memory, there is a potential trade-off to make between memory and compute. Can we avoid saving activations? As explained in [how activation checkpointing enables scaling up training deep learning models](https://medium.com/pytorch/how-activation-checkpointing-enables-scaling-up-training-deep-learning-models-7a93ae01ff2d)
+
+>Activation checkpointing is a technique used for reducing the memory footprint at the cost of more compute.
+>It utilizes the simple observation that we can avoid saving intermediate tensors necessary for backward computation if we just recompute them on demand instead.
+
+By applying activation checkpointing, despite a lower memory footprint, the training process is slower than without activation checkpointing.
+
+## References
 [A comprehensive guide to memory usage in pytorch](https://medium.com/deep-learning-for-protein-design/a-comprehensive-guide-to-memory-usage-in-pytorch-b9b7c78031d3)
 
 [Relationship between memory usage and batch size](https://discuss.pytorch.org/t/relationship-between-gpu-memory-usage-and-batch-size/132266)
@@ -141,3 +150,5 @@ print('model size: {}\ninput size: {}\nactivation size: {}'.format(
 [small model with OOM error](https://discuss.pytorch.org/t/pytorch-appears-to-be-crashing-due-to-oom-prematurely/131039/11)
 
 [the huggingface blog -model memory anatomy](https://huggingface.co/docs/transformers/model_memory_anatomy)
+
+[how activation checkpointing enables scaling up training deep learning models](https://medium.com/pytorch/how-activation-checkpointing-enables-scaling-up-training-deep-learning-models-7a93ae01ff2d)
