@@ -29,6 +29,29 @@ Cartoon Set is a collection of 2D cartoon avatar images, as illustrated below.
 </p>
 
 This data is licensed by Google LLC under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+>Each cartoon image has an accompanying csX.csv file that lists the attributes for that cartoon. Each line in the attribute file contains the attribute name, the index of the selected variant, and the total number of variants for that attribute, for example:
+```
+"eye_angle", 2, 3
+"eye_lashes", 1, 2
+"eye_lid", 0, 2
+"chin_length", 1, 3
+"eyebrow_weight", 1, 2
+"eyebrow_shape", 3, 14
+"eyebrow_thickness", 3, 4
+"face_shape", 2, 7
+"facial_hair", 2, 15
+"hair", 25, 111
+"eye_color", 4, 5
+"face_color", 2, 11
+"hair_color", 7, 10
+"glasses", 11, 12
+"glasses_color", 0, 7
+"eye_slant", 0, 3
+"eyebrow_width", 1, 3
+"eye_eyebrow_distance", 1, 3
+```
+
 We apply the following preprocessing to images:
 1. Central crop 360 pixels
 2. Resize to 64 by 64 images
