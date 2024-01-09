@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Build Avatar Diffusion Model from Scratch"
+title: "Build Cartoon Avatar Diffusion Model from Scratch"
 date: 2024-01-01
 author: Wuyang
 categories: diffusion model
