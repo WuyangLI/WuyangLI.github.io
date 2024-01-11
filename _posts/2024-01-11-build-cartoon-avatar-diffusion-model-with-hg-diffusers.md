@@ -123,7 +123,7 @@ when guidance is 9.0
 |:---|:---|:---|
 |number of parameters|76M|180M|
 |denoising model|Tau + Unet|Tau + Unet|
-|Unet basic blocks|resnet block, cross multi-head attention|resnet blocks, transformer block (cross attention only)|
+|Unet basic blocks|resnet blocks, multi-head cross attention|resnet blocks, transformer block (cross attention only)|
 |number of attention head|4|32|
 |training time per epoch|~10 mins|~120 mins|
 |strength|shape, hairstyle|clean, bright color|
