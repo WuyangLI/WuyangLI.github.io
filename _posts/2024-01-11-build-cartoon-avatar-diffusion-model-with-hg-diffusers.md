@@ -57,3 +57,43 @@ gradients size: 719.11 MB
 <p align=center>
   <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_guidance_scale_from_0.0_9.0.gif" alt="cartoon avatar diffusion guidance scale from 0 to 9" width="400"/>
 </p>
+
+when guidance is 0
+
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_0.0.png" alt="cartoon avatar diffusion guidance 0" width="400"/>
+</p>
+
+when guidance is 1.0
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_1.0.png" alt="cartoon avatar diffusion guidance 1.0" width="400"/>
+</p>
+
+when guidance is 2.0
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_2.0.png" alt="cartoon avatar diffusion guidance 2.0" width="400"/>
+</p>
+
+when guidance is 9.0
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_9.0.png" alt="cartoon avatar diffusion guidance 9.0" width="400"/>
+</p>
+
+## What does the model learn over the epochs?
+
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_0.png" alt="random samples of cartoon avatar diffusion epoch 0" width="400"/>
+</p>
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_1.png" alt="random samples of cartoon avatar diffusion epoch 1" width="400"/>
+</p>
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_2.png" alt="random samples of cartoon avatar diffusion epoch 2" width="400"/>
+</p>
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_3.png" alt="random samples of cartoon avatar diffusion epoch 3" width="400"/>
+</p>
+
+## Model built with HG diffusers vs from scratch
+**Not an apple-to-apple comparison**
+
