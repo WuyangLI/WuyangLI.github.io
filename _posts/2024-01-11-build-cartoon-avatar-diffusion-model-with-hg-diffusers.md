@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Build Cartoon Avatar Diffusion Model with HuggingFace diffusers"
+title: "Build Cartoon Avatar Diffusion Model with HuggingFace diffusers [WIP]"
 date: 2024-01-11
 author: Wuyang
 categories: diffusion model
