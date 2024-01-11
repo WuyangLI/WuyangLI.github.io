@@ -103,3 +103,7 @@ when guidance is 9.0
 ## Model built with HG diffusers vs from scratch
 **Not an apple-to-apple comparison**
 
+1. similar Unet basic blocks: resnet block + cross attention block
+2. model built from scratch -> small, hairstyle, but noisy
+   model built with diffusers -> big, clean, but hairstyle not well captured
+
