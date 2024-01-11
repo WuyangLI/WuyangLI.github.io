@@ -31,6 +31,10 @@ adam optimizer size: 1376.98 MB
 gradients size: 688.49 MB
 ```
 
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_attn_head_16_epoch_6.png" alt="attn head 16" width="500"/>
+</p>
+
 ```python
 UNet2DConditionModel((64, 64), 3, 3, 
                             down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
@@ -50,7 +54,9 @@ model weight size: 719.11 MB
 adam optimizer size: 1438.23 MB
 gradients size: 719.11 MB
 ```
-
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_6.png" alt="attn head 32 cross attn only" width="500"/>
+</p>
 
 ## Play with guidance scale
 
