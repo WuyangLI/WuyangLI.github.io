@@ -126,6 +126,8 @@ when guidance is 9.0
 |Unet basic blocks|resnet blocks, multi-head cross attention|resnet blocks, transformer block (cross attention only)|
 |number of attention head|4|32|
 |training time per epoch|~10 mins|~120 mins|
+|optimizer epoch|Adam|AdamW|
+|learning rate schedule|StepLR|cosine_schedule_with_warmup|
 |strength|accurate shape, various hairstyles|clean background, bright color|
 |weakness|noisy, color corruption| hairstyle not well captured|
 |example|<img align=center src="/docs/assets/images/diffusion_models/figures/scratch_gs_2_attn_head_4.png" alt="" width="64"/>|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_gs_2_attn_head_32.png" alt="" width="64"/>|
