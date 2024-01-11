@@ -6,6 +6,9 @@ author: Wuyang
 categories: diffusion model
 permalink: build-cartoon-avatar-diffusion-model-with-hg-diffusers
 ---
+<p align=center>
+  <img align=center src="docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_inference_gs_7_sampled.gif" alt="cartoon avatar diffusion random samples hg diffusers" width="500"/>
+</p>
 
 [notebook](diffusion_models/cartoonset_diffusion/diffuser_cartoonset_diffusion_conditional.ipynb)
 
