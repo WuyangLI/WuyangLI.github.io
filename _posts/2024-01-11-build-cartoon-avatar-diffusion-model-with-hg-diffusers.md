@@ -12,6 +12,31 @@ permalink: build-cartoon-avatar-diffusion-model-with-hg-diffusers
 
 [notebook](diffusion_models/cartoonset_diffusion/diffuser_cartoonset_diffusion_conditional.ipynb)
 
+## Unet built with HG diffusers
+```python
+UNet2DConditionModel((64, 64), 3, 3, 
+                            down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
+                            up_block_types=("CrossAttnUpBlock2D", "CrossAttnUpBlock2D","CrossAttnUpBlock2D"),
+                            block_out_channels=(128, 256, 512),
+                            cross_attention_dim=1280,
+                            layers_per_block=2,
+                            only_cross_attention=True,
+                            attention_head_dim=32)
+
+```
+```
+trainable model parameters: 188511363
+all model parameters: 188511363
+percentage of trainable model parameters: 100.00%
+model weight size: 719.11 MB
+adam optimizer size: 1438.23 MB
+gradients size: 719.11 MB
+```
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_6.png" alt="attn head 32 cross attn only" width="500"/>
+</p>
+
+### Other Attempts
 ```python
 UNet2DConditionModel((64, 64), 3, 3, 
                             down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
@@ -42,20 +67,11 @@ UNet2DConditionModel((64, 64), 3, 3,
                             block_out_channels=(128, 256, 512),
                             cross_attention_dim=1280,
                             layers_per_block=2,
-                            only_cross_attention=True,
-                            attention_head_dim=32)
+                            attention_head_dim=8) # attention_head_dim default value is 8
 
 ```
-```
-trainable model parameters: 188511363
-all model parameters: 188511363
-percentage of trainable model parameters: 100.00%
-model weight size: 719.11 MB
-adam optimizer size: 1438.23 MB
-gradients size: 719.11 MB
-```
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_6.png" alt="attn head 32 cross attn only" width="500"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_attn_head_8_epoch_15.png" alt="attn head 8" width="500"/>
 </p>
 
 ## Play with guidance scale
@@ -105,10 +121,11 @@ when guidance is 9.0
 
 ||model built from scratch|model built with diffusers|
 |:---|:---|:---|
-|number of parameters||180M|
+|number of parameters|76M|180M|
 |architecture|Tau + Unet|Tau + Unet|
-|Unet basic blocks|resnet block, cross multi-head attention|resnet blocks, transformer block|
+|Unet basic blocks|resnet block, cross multi-head attention|resnet blocks, transformer block (cross attention only)|
 |number of attention head|4|32|
+|training time per epoch|~10 mins|~120 mins|
 |strength|shape, hairstyle|clean, bright color|
 |weakness|noisy, color corruption| hairstyle not well captured|
 
