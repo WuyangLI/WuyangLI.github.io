@@ -122,7 +122,7 @@ when guidance is 9.0
 ||model built from scratch|model built with diffusers|
 |:---|:---|:---|
 |number of parameters|76M|180M|
-|architecture|Tau + Unet|Tau + Unet|
+|denoising model|Tau + Unet|Tau + Unet|
 |Unet basic blocks|resnet block, cross multi-head attention|resnet blocks, transformer block (cross attention only)|
 |number of attention head|4|32|
 |training time per epoch|~10 mins|~120 mins|
