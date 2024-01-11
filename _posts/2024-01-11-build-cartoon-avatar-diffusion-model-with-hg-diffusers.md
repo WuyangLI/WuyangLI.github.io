@@ -50,3 +50,10 @@ model weight size: 719.11 MB
 adam optimizer size: 1438.23 MB
 gradients size: 719.11 MB
 ```
+
+
+## Play with guidance scale
+
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_guidance_scale_from_0.0_9.0.gif" alt="cartoon avatar diffusion guidance scale from 0 to 9" width="400"/>
+</p>
