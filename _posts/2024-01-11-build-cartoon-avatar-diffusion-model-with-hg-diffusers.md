@@ -57,7 +57,7 @@ gradients size: 688.49 MB
 ```
 
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_attn_head_16_epoch_6.png" alt="attn head 16" width="500"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_atten_head_8_epoch_15.png" alt="attn head 16" width="500"/>
 </p>
 
 ```python
