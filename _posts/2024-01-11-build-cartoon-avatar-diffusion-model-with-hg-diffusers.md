@@ -103,7 +103,13 @@ when guidance is 9.0
 ## Model built with HG diffusers vs from scratch
 **Not an apple-to-apple comparison**
 
-1. similar Unet basic blocks: resnet block + cross attention block
-2. model built from scratch -> small, hairstyle, but noisy
-   model built with diffusers -> big, clean, but hairstyle not well captured
+||model built from scratch|model built with diffusers|
+|:---|:---|:---|
+|number of parameters||180M|
+|architecture|Tau + Unet|Tau + Unet|
+|Unet basic blocks|resnet block, cross multi-head attention|resnet blocks, transformer block|
+|number of attention head|4|32|
+|strength|shape, hairstyle|clean, bright color|
+|weakness|noisy, color corruption| hairstyle not well captured|
+
 
