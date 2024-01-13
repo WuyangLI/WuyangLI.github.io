@@ -43,7 +43,7 @@ gradients size: 719.11 MB
 ```
 Below are a random samples of generated cartoon avatars after training for 6 epochs.
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_6.png" alt="attn head 32 cross attn only" width="500"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_6.png" alt="attn head 32 cross attn only" width="800"/>
 </p>
 <p align=center>generated images at epoch 6 </p>
 
@@ -55,29 +55,12 @@ How do they compare to the images generated in the project ["build cartoon avata
 <p align=center>generated images of the model built from scratch at epoch 18</p>
 
 ### Other Attempts
-I also trained Unets with other settings
-```python
-UNet2DConditionModel((64, 64), 3, 3, 
-                            down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
-                            up_block_types=("CrossAttnUpBlock2D", "CrossAttnUpBlock2D","CrossAttnUpBlock2D"),
-                            block_out_channels=(128, 256, 512),
-                            cross_attention_dim=1280,
-                            layers_per_block=2,
-                            attention_head_dim=16)
+I also trained Unets with other settings, their main differences from the model outline above are:
+1. They use both cross-attention and self-attention.
+2. They use fewer attention heads, 16 and 8 respectively. whereas the final version of the model uses 32 attention heads.
 
-```
-```
-trainable model parameters: 180483203
-all model parameters: 180483203
-percentage of trainable model parameters: 100.00%
-model weight size: 688.49 MB
-adam optimizer size: 1376.98 MB
-gradients size: 688.49 MB
-```
-
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_attn_head_16_epoch_6.png" alt="attn head 16" width="500"/>
-</p>
+Observing the generated images gives us a clear indication:
+With 8 attention heads, the model struggles to accurately depict color and hairstyle.
 
 ```python
 UNet2DConditionModel((64, 64), 3, 3, 
@@ -90,49 +73,67 @@ UNet2DConditionModel((64, 64), 3, 3,
 
 ```
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_atten_head_8_epoch_15.png" alt="attn head 8" width="500"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_atten_head_8_epoch_15.png" alt="attn head 8" width="800"/>
 </p>
+
+Increasing the number of heads to 16 improves color representation, but the portrayal of hairstyles remains lacking.
+
+```python
+UNet2DConditionModel((64, 64), 3, 3, 
+                            down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
+                            up_block_types=("CrossAttnUpBlock2D", "CrossAttnUpBlock2D","CrossAttnUpBlock2D"),
+                            block_out_channels=(128, 256, 512),
+                            cross_attention_dim=1280,
+                            layers_per_block=2,
+                            attention_head_dim=16)
+
+```
+
+```
+trainable model parameters: 180483203
+all model parameters: 180483203
+percentage of trainable model parameters: 100.00%
+model weight size: 688.49 MB
+adam optimizer size: 1376.98 MB
+gradients size: 688.49 MB
+```
+
+<p align=center>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_attn_head_16_epoch_6.png" alt="attn head 16" width="800"/>
+</p>
+
 
 ## Play with guidance scale
 
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_guidance_scale_from_0.0_9.0.gif" alt="cartoon avatar diffusion guidance scale from 0 to 9" width="400"/>
-</p>
 
-when guidance is 0
 
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_0.0.png" alt="cartoon avatar diffusion guidance 0" width="400"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_guidance_scale_from_0.0_9.0.gif" alt="cartoon avatar diffusion guidance scale from 0 to 9" width="800"/>
 </p>
 
-when guidance is 1.0
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_1.0.png" alt="cartoon avatar diffusion guidance 1.0" width="400"/>
-</p>
-
-when guidance is 2.0
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_2.0.png" alt="cartoon avatar diffusion guidance 2.0" width="400"/>
-</p>
-
-when guidance is 9.0
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_9.0.png" alt="cartoon avatar diffusion guidance 9.0" width="400"/>
-</p>
+|guidance scale|generated images given the same conditions|
+|:----:|:----:|
+|0.0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_0.0.png" alt="cartoon avatar diffusion guidance 0" width="800"/>|
+|1.0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_1.0.png" alt="cartoon avatar diffusion guidance 1.0" width="800"/>|
+|2.0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_2.0.png" alt="cartoon avatar diffusion guidance 2.0" width="800"/>|
+|3.0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_3.0.png" alt="cartoon avatar diffusion guidance 2.0" width="800"/>|
+|5.0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_5.0.png" alt="cartoon avatar diffusion guidance 2.0" width="800"/>|
+|7.0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_7.0.png" alt="cartoon avatar diffusion guidance 2.0" width="800"/>|
+|9.0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_inference_image_gs_9.0.png" alt="cartoon avatar diffusion guidance 9.0" width="800"/>|
 
 ## What does the model learn over the epochs?
 
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_0.png" alt="random samples of cartoon avatar diffusion epoch 0" width="400"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_0.png" alt="random samples of cartoon avatar diffusion epoch 0" width="800"/>
 </p>
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_1.png" alt="random samples of cartoon avatar diffusion epoch 1" width="400"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_1.png" alt="random samples of cartoon avatar diffusion epoch 1" width="800"/>
 </p>
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_2.png" alt="random samples of cartoon avatar diffusion epoch 2" width="400"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_2.png" alt="random samples of cartoon avatar diffusion epoch 2" width="800"/>
 </p>
 <p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_3.png" alt="random samples of cartoon avatar diffusion epoch 3" width="400"/>
+  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_3.png" alt="random samples of cartoon avatar diffusion epoch 3" width="800"/>
 </p>
 
 ## Model built with HG diffusers vs from scratch
