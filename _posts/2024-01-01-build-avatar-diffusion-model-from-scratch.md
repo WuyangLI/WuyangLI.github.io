@@ -215,6 +215,17 @@ While it may appear evident, discovering an appropriate noise level for the forw
   <img src="/docs/assets/images/diffusion_models/figures/noise-level-screenshot.png" alt="" width="800"/>
 </p>
 
+There are other interesting findings articulated in [On the Importance of Noise Scheduling for Diffusion Models](https://arxiv.org/abs/2301.10972)
+> We empirically study the effect of noise scheduling strategies for denoising diffusion generative models.
+> 
+> There are three findings:
+> 
+> (1) the noise scheduling is crucial for the performance, and the optimal one depends on the task (e.g., image sizes),
+> 
+> (2) when increasing the image size, the optimal noise scheduling shifts towards a noisier one (due to increased redundancy in pixels), and
+>
+> (3) simply scaling the input data by a factor of b while keeping the noise schedule function fixed (equivalent to shifting the logSNR by log b) is a good strategy across image sizes.
+
 #### Learning Rate Schedule
 Similar to training any other neural networks, establishing an effective learning rate schedule holds significant importance, particularly when aiming to train a model capable of generating high-quality images.
 
