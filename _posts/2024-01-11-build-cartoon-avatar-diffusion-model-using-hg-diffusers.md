@@ -41,10 +41,18 @@ model weight size: 719.11 MB
 adam optimizer size: 1438.23 MB
 gradients size: 719.11 MB
 ```
-below are the random samples of generated cartoon avatars after training for 6 epochs.
+Below are a random samples of generated cartoon avatars after training for 6 epochs.
 <p align=center>
   <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_6.png" alt="attn head 32 cross attn only" width="500"/>
 </p>
+<p align=center>generated images at epoch 6 </p>
+
+How do they compare to the images generated in the project ["build cartoon avatar diffusion model from scratch"](https://wuyangli.github.io/build-avatar-diffusion-model-from-scratch) ?
+
+<p align=center>
+  <img src="/docs/assets/images/diffusion_models/figures/figure16_conditional_diffusion_4_ep18.png" alt="figure 16" width="800"/>
+</p>
+<p align=center>generated images of the model built from scratch at epoch 18</p>
 
 ### Other Attempts
 I also trained Unets with other settings
