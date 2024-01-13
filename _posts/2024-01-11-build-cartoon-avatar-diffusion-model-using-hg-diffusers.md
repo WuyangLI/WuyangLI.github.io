@@ -1,16 +1,23 @@
 ---
 layout: post
-title: "Build Cartoon Avatar Diffusion Model with HuggingFace diffusers [WIP]"
+title: "Build Cartoon Avatar Diffusion Model using HuggingFace diffusers [WIP]"
 date: 2024-01-11
 author: Wuyang
 categories: diffusion model
-permalink: build-cartoon-avatar-diffusion-model-with-hg-diffusers
+permalink: build-cartoon-avatar-diffusion-model-using-hg-diffusers
 ---
 <p align=center>
   <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_inference_gs_7_sampled.gif" alt="cartoon avatar diffusion random samples hg diffusers" width="500"/>
 </p>
 
-[notebook](diffusion_models/cartoonset_diffusion/diffuser_cartoonset_diffusion_conditional.ipynb)
+Continuing from the last project ["build cartoon avatar diffusion model from scratch"](https://wuyangli.github.io/build-avatar-diffusion-model-from-scratch), I crafted a new model for generating cartoon avatars using the Hugging Face Diffusers library.
+
+For additional insights into this model, refer to the linked Jupyter note [notebook](diffusion_models/cartoonset_diffusion/diffuser_cartoonset_diffusion_conditional.ipynb) for comprehensive details.
+
+The project setup closely mirrors the previous one, encompassing the dataset, condition component, noise schedule, and denoising process, which all remain identical. The divergences lie in two key aspects:
+1. Unet (implementation and structure)
+2. Optimizer and learning rate schedule
+
 
 ## Unet built with HG diffusers
 ```python
@@ -32,11 +39,13 @@ model weight size: 719.11 MB
 adam optimizer size: 1438.23 MB
 gradients size: 719.11 MB
 ```
+below are the random samples of generated cartoon avatars after training for 6 epochs.
 <p align=center>
   <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_6.png" alt="attn head 32 cross attn only" width="500"/>
 </p>
 
 ### Other Attempts
+
 ```python
 UNet2DConditionModel((64, 64), 3, 3, 
                             down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
