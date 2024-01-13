@@ -10,7 +10,7 @@ permalink: build-cartoon-avatar-diffusion-model-using-hg-diffusers
   <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_inference_gs_7_sampled.gif" alt="cartoon avatar diffusion random samples hg diffusers" width="500"/>
 </p>
 
-Continuing from the last project ["build cartoon avatar diffusion model from scratch"](https://wuyangli.github.io/build-avatar-diffusion-model-from-scratch), I crafted a new model for generating cartoon avatars using the Hugging Face Diffusers library.
+Continuing from the last project ["build cartoon avatar diffusion model from scratch"](https://wuyangli.github.io/build-avatar-diffusion-model-from-scratch), I crafted a new model for generating cartoon avatars using the Huggingface Diffusers library.
 
 For additional insights into this model, refer to the linked Jupyter note [notebook](diffusion_models/cartoonset_diffusion/diffuser_cartoonset_diffusion_conditional.ipynb) for comprehensive details.
 
@@ -20,6 +20,8 @@ The project setup closely mirrors the previous one, encompassing the dataset, co
 
 
 ## Unet built with HG diffusers
+As shown in the following code block, the UNet is an instance of `UNet2DConditionModel` in the Huggingface diffusers library. Both `down` and `up` blocks are `CrossAttn` blocks. What stands out is that the model utilizes 32 attention heads.
+Apparently, the Unet is more complex in terms of structure than the one we built from scratch. Does increased model complexity result in visually superior generated images?
 ```python
 UNet2DConditionModel((64, 64), 3, 3, 
                             down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
@@ -45,7 +47,7 @@ below are the random samples of generated cartoon avatars after training for 6 e
 </p>
 
 ### Other Attempts
-
+I also trained Unets with other settings
 ```python
 UNet2DConditionModel((64, 64), 3, 3, 
                             down_block_types=("CrossAttnDownBlock2D", "CrossAttnDownBlock2D", "CrossAttnDownBlock2D"),
