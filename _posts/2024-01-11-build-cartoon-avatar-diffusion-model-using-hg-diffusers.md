@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Build Cartoon Avatar Diffusion Model using HuggingFace diffusers [WIP]"
+title: "Build Cartoon Avatar Diffusion Model using HuggingFace diffusers"
 date: 2024-01-11
 author: Wuyang
 categories: diffusion model
@@ -105,7 +105,15 @@ gradients size: 688.49 MB
 
 ## Play with guidance scale
 
+We used a fixed guidance 2.0 in the last blog and didn't play with this parameter.
+According to [Exploring stable diffusion guidance](https://10maurycy10.github.io/misc/sd_guidance/), 
+>The guidance scale parameter controls how strongly the generation process is guided towards the prompt. A value of 0 is equivalent to no guidance, and the image is completely unrelated to the prompt (it can however, still be an interesting image). Increasing the guidance scale increases how closely the image resembles the prompt, but reduces consistency and tends to lead to an overstaturated and oversharpened image.
 
+Can we witness similar influences of guidance on the cartoon avatar model? 
+
+Using identical condition embeddings, I ramped up the guidance from 0.0 to 9.0 and produced 16 samples for each guidance value. 
+
+The table below illustrates that at a guidance value of 0, images appear random. By the time the guidance reaches 1.0, the images already show discernible patterns, and there isn't a significant qualitative distinction among images generated with guidance values ranging from 2.0 to 9.0.
 
 <p align=center>
   <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_cartoon_set_diffusion_guidance_scale_from_0.0_9.0.gif" alt="cartoon avatar diffusion guidance scale from 0 to 9" width="800"/>
