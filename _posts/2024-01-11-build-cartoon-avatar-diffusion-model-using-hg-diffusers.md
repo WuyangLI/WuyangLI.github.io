@@ -142,7 +142,10 @@ The table below illustrates that at a guidance value of 0, images appear random.
 after epoch 3, the loss doesn't decrease dramatically and gradually statuates at epoch 6.
 
 ## Model built with HG diffusers vs from scratch
-**Not an apple-to-apple comparison**
+
+The two models have distinct complexities and settings, making a direct comparison unfair. 
+
+Nevertheless, for the sake of completeness in this blog series, we conduct a comparison between them, acknowledging that it's not an apples-to-apples scenario.
 
 ||model built from scratch|model built with diffusers|
 |:---|:---|:---|
