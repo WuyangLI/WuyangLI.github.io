@@ -153,8 +153,8 @@ after epoch 3, the loss doesn't decrease dramatically and gradually statuates at
 |training time per epoch|~10 mins|~120 mins|
 |optimizer epoch|Adam|AdamW|
 |learning rate schedule|StepLR|cosine_schedule_with_warmup|
-|strength|accurate shape, various hairstyles|clean background, bright color|
-|weakness|noisy, color corruption| hairstyle not well captured|
+|strength|excels in accurately depicting shapes, particularly a diverse range of hairstyles|produces images with pristine backgrounds and vibrant colors|
+|weakness|tends to generate images with numerous noisy pixels and occasional color corruption|struggles in accurately portraying various styles of hairstyles|
 |example|<img align=center src="/docs/assets/images/diffusion_models/figures/scratch_gs_2_attn_head_4.png" alt="" width="64"/>|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_gs_2_attn_head_32.png" alt="" width="64"/>|
 
 
