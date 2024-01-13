@@ -131,18 +131,15 @@ The table below illustrates that at a guidance value of 0, images appear random.
 
 ## What does the model learn over the epochs?
 
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_0.png" alt="random samples of cartoon avatar diffusion epoch 0" width="800"/>
-</p>
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_1.png" alt="random samples of cartoon avatar diffusion epoch 1" width="800"/>
-</p>
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_2.png" alt="random samples of cartoon avatar diffusion epoch 2" width="800"/>
-</p>
-<p align=center>
-  <img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_3.png" alt="random samples of cartoon avatar diffusion epoch 3" width="800"/>
-</p>
+|epoch|random samples|
+|:---:|:---:|
+|0|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_0.png" alt="random samples of cartoon avatar diffusion epoch 0" width="800"/>|
+|1|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_1.png" alt="random samples of cartoon avatar diffusion epoch 1" width="800"/>|
+|2|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_2.png" alt="random samples of cartoon avatar diffusion epoch 2" width="800"/>|
+|3|<img align=center src="/docs/assets/images/diffusion_models/figures/hg_diffusers_image_epoch_3.png" alt="random samples of cartoon avatar diffusion epoch 3" width="800"/>|
+
+
+after epoch 3, the loss doesn't decrease dramatically and gradually statuates at epoch 6.
 
 ## Model built with HG diffusers vs from scratch
 **Not an apple-to-apple comparison**
